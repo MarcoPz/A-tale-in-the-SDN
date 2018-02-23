@@ -14,10 +14,10 @@ def myNetwork():
 
 	net = Mininet( topo=None,build=False,ipBase='10.0.0.0/8')
 
-	info( 'Add controller\n' )
+	info( '+Add controller+\n' )
 	c0=net.addController(name='c0',controller=Controller,protocol='tcp',port=6633)
 
-	info( 'Add switches\n')
+	info( '+Add switches+\n')
 	s9 = net.addSwitch('s9', cls=OVSKernelSwitch)
 	s3 = net.addSwitch('s3', cls=OVSKernelSwitch)
 	s4 = net.addSwitch('s4', cls=OVSKernelSwitch)
@@ -29,7 +29,7 @@ def myNetwork():
 	s8 = net.addSwitch('s8', cls=OVSKernelSwitch)
 	s2 = net.addSwitch('s2', cls=OVSKernelSwitch)
 
-	info( 'Add hosts\n')
+	info( '+Add hosts+\n')
 	h7 = net.addHost('h7', cls=Host, ip='10.0.0.7', defaultRoute=None)
 	h15 = net.addHost('h15', cls=Host, ip='10.0.0.15', defaultRoute=None)
 	h3 = net.addHost('h3', cls=Host, ip='10.0.0.3', defaultRoute=None)
@@ -47,7 +47,7 @@ def myNetwork():
 	h5 = net.addHost('h5', cls=Host, ip='10.0.0.5', defaultRoute=None)
 	h12 = net.addHost('h12', cls=Host, ip='10.0.0.12', defaultRoute=None)
 
-	info( '*** Add links\n')
+	info( '+Add links+\n')
 	net.addLink(s1, h3)
 	net.addLink(h1, s1)
 	net.addLink(h2, s1)
@@ -75,14 +75,14 @@ def myNetwork():
 	net.addLink(s10, h16)
 
     
-	info( 'Starting network\n')
+	info( '+Starting network+\n')
 	net.addNAT().configDefault()
 	net.build()
 	
-	info( 'Starting controllers\n')
+	info( '+Starting controllers+\n')
 	for controller in net.controllers:controller.start()
 
-	info( 'Starting switches\n')
+	info( '+Starting switches+\n')
 	net.get('s9').start([c0])
 	net.get('s3').start([c0])
 	net.get('s4').start([c0])
@@ -94,9 +94,10 @@ def myNetwork():
 	net.get('s8').start([c0])
 	net.get('s2').start([c0])
 
-	info( 'Post configure switches and hosts\n')
+	info( '+Post configure switches and hosts+\n')
 	CLI(net)
 	net.stop()
+	
 	
 if __name__ == '__main__':
 	setLogLevel( 'info' )
