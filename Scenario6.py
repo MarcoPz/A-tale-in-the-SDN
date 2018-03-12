@@ -68,7 +68,7 @@ def myNetwork():
     #c0.cmdPrint(curl -X POST -d '{"nw_src": "10.0.0.2/8", "nw_dst": "10.0.0.1/8", "nw_proto": "ICMP"}' http://localhost:8080/firewall/rules/0000000000000001) add this rule in c0
     
     print('PING h1->h2\n')
-    ##net.pingAll() in mininet CLI (mininet> pingAll and you will notice that now h1 ping with success h2, while h3 still not reachable.
+    #net.pingAll() in mininet CLI (mininet> pingAll and you will notice that now h1 ping with success h2, while h3 still not reachable.
    
     #You have added some rules just for the ICMP protocol, but you can add others related to all protcols.
    
